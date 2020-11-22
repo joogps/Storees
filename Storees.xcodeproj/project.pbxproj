@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275EBC9F256AD9D800AE6FA3 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EBC9E256AD9D800AE6FA3 /* BubbleView.swift */; };
+		27AA138C256999180001B394 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AA138B256999170001B394 /* StoryView.swift */; };
 		27E34854256816F600EC7317 /* StoreesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E34853256816F600EC7317 /* StoreesApp.swift */; };
 		27E34856256816F600EC7317 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E34855256816F600EC7317 /* ContentView.swift */; };
 		27E34858256816F800EC7317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E34857256816F800EC7317 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		275EBC9E256AD9D800AE6FA3 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		27AA138B256999170001B394 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		27E34850256816F600EC7317 /* Storees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E34853256816F600EC7317 /* StoreesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreesApp.swift; sourceTree = "<group>"; };
 		27E34855256816F600EC7317 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			children = (
 				27E34853256816F600EC7317 /* StoreesApp.swift */,
 				27E34855256816F600EC7317 /* ContentView.swift */,
+				27AA138B256999170001B394 /* StoryView.swift */,
+				275EBC9E256AD9D800AE6FA3 /* BubbleView.swift */,
 				27E34857256816F800EC7317 /* Assets.xcassets */,
 				27E3485C256816F800EC7317 /* Info.plist */,
 				27E34859256816F800EC7317 /* Preview Content */,
@@ -85,6 +91,8 @@
 			dependencies = (
 			);
 			name = Storees;
+			packageProductDependencies = (
+			);
 			productName = Storees;
 			productReference = 27E34850256816F600EC7317 /* Storees.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +120,8 @@
 				Base,
 			);
 			mainGroup = 27E34847256816F600EC7317;
+			packageReferences = (
+			);
 			productRefGroup = 27E34851256816F600EC7317 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,6 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275EBC9F256AD9D800AE6FA3 /* BubbleView.swift in Sources */,
+				27AA138C256999180001B394 /* StoryView.swift in Sources */,
 				27E34856256816F600EC7317 /* ContentView.swift in Sources */,
 				27E34854256816F600EC7317 /* StoreesApp.swift in Sources */,
 			);
