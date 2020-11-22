@@ -1,6 +1,6 @@
 <h1>
-  <img align="left" alt="Storees" src="../assets/Logo.png" height=60>
-  <img align="right" alt="Project logo" src="../assets/Icon.png" height=74px>
+  <img align="left" alt="Storees" src="../assets/Logo.png" height=54>
+  <img align="right" alt="Project logo" src="../assets/icon-small.png" height=74px>
 </h1>
 
 <p>
@@ -11,4 +11,4 @@
     </a>
 </p>
 
-Because everything has stories now.
+A pure-SwiftUI implementation of stories, because everything has stories now.
