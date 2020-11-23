@@ -20,10 +20,10 @@ struct StoreesApp: App {
 
 class AppData: ObservableObject {
     @Published var stories: Array<Story> = [Story(username: "joogps", userImage: Image("Profile"), contents: [
-        StoryContent(media: Image("Picture 1"), duration: 2, date: Date().addingTimeInterval(-5*60*60)),
+        StoryContent(media: Image("Picture 1"), duration: 2, date: Date().addingTimeInterval(-6*60*60)),
         StoryContent(media: Image("Picture 2"), duration: 2.5, date: Date().addingTimeInterval(-4.5*60*60)),
-        StoryContent(media: Image("Picture 3"), duration: 1, date: Date().addingTimeInterval(-3*60*60)),
-        StoryContent(media: Image("Picture 4"), duration: 3.5, date: Date().addingTimeInterval(-2*60*60)),
+        StoryContent(media: Image("Picture 3"), duration: 1, date: Date().addingTimeInterval(-2*60*60)),
+        StoryContent(media: Image("Picture 4"), duration: 3.5, date: Date().addingTimeInterval(-1*60*60)),
         StoryContent(media: Image("Picture 5"), duration: 5, date: Date().addingTimeInterval(-37*60)),
         StoryContent(media: Image("Picture 6"), duration: 3, date: Date().addingTimeInterval(-16))
     ])]
