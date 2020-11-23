@@ -12,3 +12,5 @@
 </p>
 
 A pure-SwiftUI implementation of stories, because everything has stories now.
+
+![The repository banner](../assets/Banner.png)
