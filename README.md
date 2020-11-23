@@ -14,3 +14,7 @@
 A pure-SwiftUI implementation of stories, because everything has stories now.
 
 ![The repository banner](../assets/Banner.png)
+
+## Contributing
+
+Everyone is welcome to contribute to this project! Althought it's only a proof of concept, you can try to improve it the way you want, just open a pull request! If you have any questions or problems, don't be afraid to contact me or open an issue here on GitHub.
