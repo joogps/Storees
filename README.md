@@ -1,6 +1,6 @@
 <h1>
   <img align="left" alt="Storees" src="../assets/Logo.png" height=52>
-  <img align="right" alt="Project logo" src="../assets/icon-small.png" height=76px>
+  <img align="right" alt="Project logo" src="../assets/icon-small.png" height=92px>
 </h1>
 
 <p>
