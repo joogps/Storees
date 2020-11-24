@@ -11,7 +11,7 @@
     </a>
 </p>
 
-A pure-SwiftUI implementation of stories, because everything has stories now.
+A pure-SwiftUI implementation of stories, because everything has stories these days.
 
 ![The repository banner](../assets/Banner.png)
 
