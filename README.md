@@ -17,4 +17,4 @@ A pure implementation of stories in SwiftUI, because everything has stories thes
 
 ## Contributing
 
-Everyone is welcome to contribute to this project! Althought it's only a proof of concept, you can try to improve it the way you want, just open a pull request! If you have any questions or problems, don't be afraid to contact me or open an issue here on GitHub.
+Everyone is welcome to contribute to this project! Although it's only really a proof of concept, you can try to improve it the way you want, just open a pull request! If you have any questions or any kind of problem, don't be afraid to contact me or open an issue here on GitHub.
