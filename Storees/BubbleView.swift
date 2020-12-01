@@ -36,7 +36,7 @@ struct BubbleView: View {
                 .lineLimit(1)
                 .font(.system(size: 12, weight: .bold))
                 .matchedGeometryEffect(id: username+"-username", in: animation)
-        }.padding(6)
+        }.padding(4)
     }
     
     struct BubbleButtonStyle: ButtonStyle {
