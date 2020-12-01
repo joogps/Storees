@@ -56,7 +56,7 @@ struct ContentView: View {
             }
             
             if presentingStory && selectedStory != nil {
-                StoryView(selectedStory: selectedStory!, isPresented: $presentingStory, animation: animation)
+                StoryView(selectedStory: Binding($selectedStory)!, isPresented: $presentingStory, animation: animation)
             }
         }.accentColor(.primary)
     }

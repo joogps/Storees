@@ -9,13 +9,13 @@ import SwiftUI
 
 struct StoryView: View {
     @EnvironmentObject var appData: AppData
-    var selectedStory: Int
+    @Binding var selectedStory: Int
     
     var story: Story {
         appData.stories[selectedStory]
     }
     
-    var isPresented: Binding<Bool>
+    @Binding var isPresented: Bool
     let animation: Namespace.ID
     
     @State var contentProgress: Double = 0.0
@@ -29,28 +29,20 @@ struct StoryView: View {
     var timer = Timer.publish(every: 1.0/60.0, on: .main, in: .common).autoconnect()
     @State var pause = false
     
-    @State private var viewOffset: CGFloat = 0.0
+    @State private var dragOffset: CGFloat = .zero
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Color.black
                     .ignoresSafeArea()
-                    .opacity(Double(pow(2, -abs(viewOffset)/500)))
-                ZStack(alignment: .top) {
-                    VStack {
-                        content
-                        Spacer()
-                    }
-                    VStack {
-                        header
-                        Spacer()
-                        footer
-                    }
-                }.clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-                .offset(x: 0, y: viewOffset/pow(2, abs(viewOffset)/500+1))
-                .scaleEffect(pow(2, -abs(viewOffset)/2500))
-            }.colorScheme(.dark)
+                    .opacity(Double(pow(2, -abs(dragOffset)/500)))
+                
+                display
+            }.clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+            .offset(y: dragOffset/pow(2, abs(dragOffset)/500+1))
+            .scaleEffect(pow(2, -abs(dragOffset)/2500))
+            .colorScheme(.dark)
             .onReceive(timer) { _ in
                 if contentProgress < 1.0 {
                     contentProgress += pause ? 0 : timer.upstream.interval/story.contents[currentContent].duration
@@ -62,18 +54,34 @@ struct StoryView: View {
             }.highPriorityGesture(
                 DragGesture()
                     .onChanged { gesture in
-                        viewOffset = max(gesture.translation.height, 0)
+                        dragOffset = max(gesture.translation.height, .leastNonzeroMagnitude)
+                        dragOffset = max(gesture.translation.height, .leastNonzeroMagnitude)
                         pause = true
                     }
                     .onEnded() { _ in
                         withAnimation(.spring(response: 0.3, dampingFraction: 1)) {
-                            isPresented.wrappedValue = viewOffset < 175
-                            viewOffset = .zero
+                            isPresented = dragOffset < 175
+                            dragOffset = .zero
                         }
                         pause = false
                     }
             ).onAppear {
                 currentContent = story.lastUnseen ?? 0
+            }
+        }
+    }
+        
+    var display: some View {
+        ZStack {
+            VStack {
+                content
+                Spacer()
+            }
+            
+            VStack {
+                header
+                Spacer()
+                footer
             }
         }
     }
@@ -120,7 +128,6 @@ struct StoryView: View {
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
                     .zIndex(10)
-                    .matchedGeometryEffect(id: story.username+"-image", in: animation)
                 HStack {
                     Text(story.username)
                         .font(.system(size: 16, weight: .bold))
@@ -128,7 +135,6 @@ struct StoryView: View {
                         .font(.system(size: 15, weight: .medium))
                         .opacity(0.85)
                 }.fixedSize(horizontal: true, vertical: true)
-                .matchedGeometryEffect(id: story.username+"-username", in: animation)
                 Spacer()
                 Button(action: dismiss) {
                     Image(systemName: "xmark")
@@ -172,7 +178,7 @@ struct StoryView: View {
     
     func dismiss() {
         withAnimation(.spring(response: 0.3, dampingFraction: 1)) {
-            isPresented.wrappedValue = false
+            isPresented = false
         }
     }
 }
