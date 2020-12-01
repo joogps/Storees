@@ -39,10 +39,10 @@ struct StoryView: View {
                     .opacity(Double(pow(2, -abs(dragOffset)/500)))
                 
                 display
-            }.clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-            .offset(y: dragOffset/pow(2, abs(dragOffset)/500+1))
-            .scaleEffect(pow(2, -abs(dragOffset)/2500))
-            .colorScheme(.dark)
+                    .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+                    .offset(y: dragOffset/pow(2, abs(dragOffset)/500+1))
+                    .scaleEffect(pow(2, -abs(dragOffset)/2500))
+            }.colorScheme(.dark)
             .onReceive(timer) { _ in
                 if contentProgress < 1.0 {
                     contentProgress += pause ? 0 : timer.upstream.interval/story.contents[currentContent].duration
@@ -70,7 +70,7 @@ struct StoryView: View {
             }
         }
     }
-        
+    
     var display: some View {
         ZStack {
             VStack {
@@ -90,9 +90,9 @@ struct StoryView: View {
         GeometryReader { geometry in
             Group {
                 story.contents[currentContent].media
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            }.frame(width: geometry.size.width, height: geometry.size.width*(16.0/9.0))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }.frame(height: geometry.size.width*(16.0/9.0))
             .background(story.contents[currentContent].media
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -127,15 +127,18 @@ struct StoryView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
-                    .zIndex(10)
+                    .matchedGeometryEffect(id: story.username+"-image", in: animation)
+                
                 HStack {
                     Text(story.username)
                         .font(.system(size: 16, weight: .bold))
                     Text(interval)
                         .font(.system(size: 15, weight: .medium))
                         .opacity(0.85)
-                }.fixedSize(horizontal: true, vertical: true)
+                }.fixedSize()
+                .matchedGeometryEffect(id: story.username+"-username", in: animation)
                 Spacer()
+                
                 Button(action: dismiss) {
                     Image(systemName: "xmark")
                         .font(.system(size: 18, weight: .bold))

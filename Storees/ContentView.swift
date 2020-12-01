@@ -43,15 +43,15 @@ struct ContentView: View {
                                            seen: story.lastUnseen == nil,
                                            animation: animation,
                                            onTap: {
-                                                withAnimation(.spring(response: 0.3, dampingFraction: 1)) {
-                                                    presentingStory = true
-                                                    selectedStory = index
-                                                }
+                                            withAnimation(.spring(response: 0.3, dampingFraction: 1)) {
+                                                presentingStory = true
+                                                selectedStory = index
+                                            }
                                            }
-                                )
+                                ).frame(width: 100, height: 100)
                             }
                         }.padding(.leading, 6)
-                    }.frame(height: 100)
+                    }
                 }
             }
             
